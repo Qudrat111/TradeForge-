@@ -1,0 +1,21 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": "../../",
+  "testRegex": "test/e2e/.*\\.e2e-spec\\.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "testEnvironment": "node",
+  "moduleNameMapper": {
+    "@tradeforge/common": "<rootDir>/packages/common/src/index.ts",
+    "@tradeforge/database": "<rootDir>/packages/database/src/index.ts",
+    "@tradeforge/events": "<rootDir>/packages/events/src/index.ts"
+  },
+  "globals": {
+    "ts-jest": {
+      "tsconfig": {
+        "strict": false
+      }
+    }
+  }
+}

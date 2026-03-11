@@ -73,6 +73,17 @@
     "collectCoverageFrom": ["src/**/*.ts", "!src/main.ts"],
     "coverageDirectory": "coverage",
     "testEnvironment": "node",
+    "globals": {
+      "ts-jest": {
+        "tsconfig": {
+          "strict": false,
+          "noUnusedLocals": false,
+          "noUnusedParameters": false,
+          "noUncheckedIndexedAccess": false,
+          "exactOptionalPropertyTypes": false
+        }
+      }
+    },
     "moduleNameMapper": {
       "@tradeforge/common": "<rootDir>/../../packages/common/src/index.ts",
       "@tradeforge/database": "<rootDir>/../../packages/database/src/index.ts",
