@@ -1,0 +1,75 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "NODE_ENV",
+    "CI"
+  ],
+  "globalPassThroughEnv": [
+    "AWS_ACCESS_KEY_ID",
+    "AWS_SECRET_ACCESS_KEY",
+    "AWS_REGION",
+    "SENTRY_DSN"
+  ],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**", "tsconfig.json", "package.json"],
+      "outputs": ["dist/**"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**", "test/**", "jest.config.*", "tsconfig.json"],
+      "outputs": ["coverage/**"],
+      "env": [
+        "NODE_ENV",
+        "DB_HOST",
+        "DB_PORT",
+        "DB_USER",
+        "DB_PASSWORD",
+        "DB_NAME",
+        "REDIS_URL",
+        "JWT_SECRET",
+        "JWT_REFRESH_SECRET"
+      ]
+    },
+    "lint": {
+      "inputs": ["src/**", ".eslintrc.*", "tsconfig.json"],
+      "outputs": []
+    },
+    "format": {
+      "inputs": ["src/**", ".prettierrc"],
+      "outputs": []
+    },
+    "type-check": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**", "tsconfig.json"],
+      "outputs": []
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "env": [
+        "NODE_ENV",
+        "PORT",
+        "DB_HOST",
+        "DB_PORT",
+        "DB_USER",
+        "DB_PASSWORD",
+        "DB_NAME",
+        "REDIS_URL",
+        "JWT_SECRET",
+        "JWT_REFRESH_SECRET",
+        "JWT_EXPIRES_IN",
+        "JWT_REFRESH_EXPIRES_IN",
+        "KAFKA_BROKERS",
+        "ELASTICSEARCH_URL",
+        "IDENTITY_SERVICE_PORT",
+        "COMPANY_SERVICE_PORT",
+        "TRADE_CORE_SERVICE_PORT"
+      ]
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}
