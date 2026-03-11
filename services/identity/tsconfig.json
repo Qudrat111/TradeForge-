@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./",
+    "paths": {
+      "@tradeforge/common": ["../../packages/common/src/index.ts"],
+      "@tradeforge/database": ["../../packages/database/src/index.ts"],
+      "@tradeforge/events": ["../../packages/events/src/index.ts"]
+    },
+    "tsBuildInfoFile": "./tsconfig.tsbuildinfo"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "test"]
+}
