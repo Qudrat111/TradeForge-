@@ -1,0 +1,33 @@
+{
+  "name": "@tradeforge/database",
+  "version": "0.1.0",
+  "description": "TypeORM entities, migrations, and seeds for TradeForge B2B platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "build:watch": "tsc --project tsconfig.json --watch",
+    "clean": "rimraf dist",
+    "type-check": "tsc --noEmit",
+    "migration:run": "typeorm migration:run -d dist/data-source.js",
+    "migration:revert": "typeorm migration:revert -d dist/data-source.js",
+    "seed": "ts-node src/seeds/index.ts"
+  },
+  "dependencies": {
+    "@tradeforge/common": "*",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "pg": "^8.11.5",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.28"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.0",
+    "@types/pg": "^8.11.5",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.4.0"
+  }
+}
